@@ -1,0 +1,52 @@
+<!-- perfil/templates/alterar_senha -->
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+
+<!-- Estilos para a página de alteração de senha -->
+<link href="{% static 'perfil/alterar_senha/css/alterar.css' %}" rel="stylesheet">
+<link href="{% static 'perfil/alterar_senha/css/alterar_senha_mdq.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %}Perfil{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="box">
+        <div class="header-box">
+            Alterar senha
+        </div>
+        <hr>
+        <div class="container mt-5">
+    
+            <!-- Exibir mensagens -->
+            {% if messages %}
+                <br>
+                {% for message in messages %}
+                    <div class="alert {{message.tags}}">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+    
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="senha_atual">Senha Atual</label>
+                    <input type="password" class="form-control" id="senha_atual" name="senha_atual" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha_nova">Nova Senha</label>
+                    <input type="password" class="form-control" id="senha_nova" name="senha_nova" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmar_senha">Confirmar Nova Senha</label>
+                    <input type="password" class="form-control" id="confirmar_senha" name="confirmar_senha" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Alterar Senha</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

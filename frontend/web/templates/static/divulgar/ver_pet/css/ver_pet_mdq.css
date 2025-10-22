@@ -1,0 +1,54 @@
+/* ========================================================== */
+/*     ESTILOS RESPONSIVOS PARA TELAS MENORES (MOBILE)        */
+/* ========================================================== */
+
+/* Aplica estas regras em telas de Tablet e menores */
+@media (max-width: 992px) {
+    /* --- AJUSTE DO LAYOUT PRINCIPAL --- */
+    .pet-hero {
+        /* Empilha a imagem e as infos relevantes em vez de ficarem lado a lado */
+        flex-direction: column; 
+        align-items: center; /* Centraliza as colunas empilhadas */
+    }
+
+    .coluna-imagem, 
+    .coluna-info-relevante {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 500px; /* Limita a largura máxima para boa aparência em tablets */
+    }
+
+    .info-grid {
+        /* Em tablets, o grid de detalhes passa de 4 para 2 colunas */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* Aplica estas regras em telas de Celular */
+@media (max-width: 768px) {
+    .header-box {
+        font-size: 2rem; /* Reduz o título principal */
+    }
+
+    .pet-details-grid h4,
+    .pet-story-section h4 {
+        font-size: 1.6rem; /* Reduz os títulos das seções */
+    }
+    
+    .pet-story-container {
+        max-width: 100%; /* História ocupa a largura total */
+    }
+}
+
+/* Aplica estas regras nas telas de celular menores */
+@media (max-width: 576px) {
+    .info-grid {
+        /* Em celulares, o grid de detalhes passa para 1 coluna */
+        grid-template-columns: 1fr; 
+    }
+
+    .box {
+        /* Remove o padding lateral excessivo em telas muito pequenas */
+        padding: 0 10px;
+    }
+}

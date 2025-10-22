@@ -1,0 +1,248 @@
+<!-- divulgar/templates/editar_pet.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link href="{% static 'divulgar/novo_pet/css/novo_pet.css' %}" rel="stylesheet">
+<link href="{% static 'divulgar/novo_pet/css/novo_pet_mdq.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Editar {{ pet.nome_pet }}{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="box">
+        <div class="header-box">
+            Editando as informações de {{ pet.nome_pet }}
+        </div>
+        <hr>
+        <div class="body-box">
+      
+            <form method="POST" enctype="multipart/form-data"> 
+                {% csrf_token %}
+
+                <input type="hidden" name="remover_foto_principal" id="remover_foto_principal" value="">
+
+                
+                <!-- mensagens -->
+                {% if errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                <!-- FIM DO BLOCO -->
+            
+                <!-- Foto Principal -->
+                <div class="form-section">
+                    <label for="foto_principal" class="form-label">Foto Principal:</label>
+                    <input type="file" id="foto_principal" name="foto_principal" class="form-control" onchange="previewMainImage(event)">
+                    <small class="text-muted">Envie uma nova foto apenas se desejar alterar a atual.</small>
+                    <div id="mainImagePreview" class="image-preview">
+                        {% if pet.foto_principal %}
+                            <div class="image-box">
+                                <img src="{{ pet.foto_principal.url }}">
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <hr>
+
+                <!-- Fotos Secundárias -->
+                <div class="form-section">
+                    <label for="fotos_secundarias" class="form-label">Fotos Secundárias:</label>
+                    <input type="file" id="fotos_secundarias" name="fotos_secundarias" class="form-control" multiple onchange="previewNewSecondaryImages(event)">
+                    <small class="text-muted">Você pode enviar novas fotos. As existentes podem ser removidas clicando no 'x'.</small>
+
+                    <!-- Container para as fotos existentes -->
+                    <div id="existingSecondaryImages" class="image-preview">
+                        {% for foto in pet.images.all %}
+
+                            <div class="image-box" id="foto-secundaria-{{ foto.id }}">
+                                <img src="{{ foto.image.url }}">
+                                <button type="button" class="remove-image" onclick="removeSecondaryImage({{ foto.id }})">×</button>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Container para o preview das novas fotos -->
+                    <div id="newSecondaryImagesPreview" class="image-preview"></div>
+                </div>
+                <hr>
+                
+                <!-- Campos de Texto e Select -->
+                <div class="form-section">
+                    <label for="nome_pet" class="form-label">Nome:</label>
+                    <input type="text" id="nome_pet" name="nome_pet" class="form-control" value="{{ pet.nome_pet }}" required maxlength="10">
+                </div>
+                <hr>
+
+                <div class="form-section">
+                    <label for="historia_pet" class="form-label">História do Pet:</label>
+                    <textarea id="historia_pet" name="historia_pet" class="form-control" rows="3" required>{{ pet.historia_pet }}</textarea>
+                </div>
+                <hr>
+                
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="especie" class="form-label">Espécie:</label>
+                        <select id="especie" name="especie" class="form-select" required>
+                            {% for id, nome in choices_especie %}
+                                <option value="{{ id }}" {% if pet.especie == id %}selected{% endif %}>{{ nome }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="sexo" class="form-label">Sexo:</label>
+                        <select id="sexo" name="sexo" class="form-select" required>
+                             {% for id, nome in choices_sexo %}
+                                <option value="{{ id }}" {% if pet.sexo == id %}selected{% endif %}>{{ nome }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tamanho" class="form-label">Tamanho:</label>
+                        <select id="tamanho" name="tamanho" class="form-select" required>
+                            {% for id, nome in choices_tamanho %}
+                                <option value="{{ id }}" {% if pet.tamanho == id %}selected{% endif %}>{{ nome }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <hr>
+
+                <!-- Tags de Características -->
+                <div class="form-section">
+                    <label class="form-label">Cuidados Veterinários:</label>
+                    <div class="tag-group">
+                        <input type="checkbox" id="c1" name="cuidados" value="Castrado" class="tag-checkbox" {% if "Castrado" in pet.cuidados %}checked{% endif %}>
+                        <label for="c1" class="tag-label">Castrado</label>
+                        <input type="checkbox" id="c2" name="cuidados" value="Vacinado" class="tag-checkbox" {% if "Vacinado" in pet.cuidados %}checked{% endif %}>
+                        <label for="c2" class="tag-label">Vacinado</label>
+                        <input type="checkbox" id="c3" name="cuidados" value="Vermifugado" class="tag-checkbox" {% if "Vermifugado" in pet.cuidados %}checked{% endif %}>
+                        <label for="c3" class="tag-label">Vermifugado</label>
+                    </div>
+                </div>
+                <hr>
+                
+                <div class="form-section">
+                    <label class="form-label">Vive Bem Em:</label>
+                    <div class="tag-group">
+                        <input type="checkbox" id="vbe1" name="vive_bem_em" value="Apartamento" class="tag-checkbox" {% if "Apartamento" in pet.vive_bem_em %}checked{% endif %}>
+                        <label for="vbe1" class="tag-label">Apartamento</label>
+                        <input type="checkbox" id="vbe2" name="vive_bem_em" value="Casa" class="tag-checkbox" {% if "Casa" in pet.vive_bem_em %}checked{% endif %}>
+                        <label for="vbe2" class="tag-label">Casa</label>
+                        <input type="checkbox" id="vbe3" name="vive_bem_em" value="Chácara/Sítio" class="tag-checkbox" {% if "Chácara/Sítio" in pet.vive_bem_em %}checked{% endif %}>
+                        <label for="vbe3" class="tag-label">Chácara/Sítio</label>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="form-section">
+                    <label class="form-label">Temperamento:</label>
+                    <div class="tag-group">
+                        <input type="checkbox" id="t1" name="temperamento" value="Brincalhão" class="tag-checkbox" {% if "Brincalhão" in pet.temperamento %}checked{% endif %}>
+                        <label for="t1" class="tag-label">Brincalhão</label>
+                        <input type="checkbox" id="t2" name="temperamento" value="Calmo" class="tag-checkbox" {% if "Calmo" in pet.temperamento %}checked{% endif %}>
+                        <label for="t2" class="tag-label">Calmo</label>
+                        <input type="checkbox" id="t3" name="temperamento" value="Arisco" class="tag-checkbox" {% if "Arisco" in pet.temperamento %}checked{% endif %}>
+                        <label for="t3" class="tag-label">Arisco</label>
+                        <input type="checkbox" id="t4" name="temperamento" value="Dócil" class="tag-checkbox" {% if "Dócil" in pet.temperamento %}checked{% endif %}>
+                        <label for="t4" class="tag-label">Dócil</label>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="form-section">
+                    <label class="form-label">Sociável Com:</label>
+                    <div class="tag-group">
+                        <input type="checkbox" id="sc1" name="sociavel_com" value="Cães" class="tag-checkbox" {% if "Cães" in pet.sociavel_com %}checked{% endif %}>
+                        <label for="sc1" class="tag-label">Cães</label>
+                        <input type="checkbox" id="sc2" name="sociavel_com" value="Gatos" class="tag-checkbox" {% if "Gatos" in pet.sociavel_com %}checked{% endif %}>
+                        <label for="sc2" class="tag-label">Gatos</label>
+                        <input type="checkbox" id="sc3" name="sociavel_com" value="Crianças" class="tag-checkbox" {% if "Crianças" in pet.sociavel_com %}checked{% endif %}>
+                        <label for="sc3" class="tag-label">Crianças</label>
+                        <input type="checkbox" id="sc4" name="sociavel_com" value="Adultos" class="tag-checkbox" {% if "Adultos" in pet.sociavel_com %}checked{% endif %}>
+                        <label for="sc4" class="tag-label">Adultos</label>
+                    </div>
+                </div>
+                <hr>
+                
+                <div class="submit-section d-flex justify-content-center mt-4">
+                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mainPreview = document.getElementById('mainImagePreview');
+      const existingImageBox = mainPreview.querySelector('.image-box');
+      if (existingImageBox) {
+        const removeBtn = document.createElement('button');
+        removeBtn.innerHTML = '×';
+        removeBtn.type = 'button';
+        removeBtn.classList.add('remove-image');
+        removeBtn.onclick = function() {
+          mainPreview.innerHTML = '';
+          document.getElementById('remover_foto_principal').value = 'true'; // <- sinaliza remoção
+        };
+        existingImageBox.appendChild(removeBtn);
+      }
+    });
+  
+    function previewMainImage(event) {
+      const file = event.target.files[0];
+      const previewContainer = document.getElementById('mainImagePreview');
+      previewContainer.innerHTML = '';
+      if (file) {
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(file);
+        img.onload = () => URL.revokeObjectURL(img.src);
+        const imageBox = document.createElement('div');
+        imageBox.classList.add('image-box');
+        imageBox.appendChild(img);
+        previewContainer.appendChild(imageBox);
+      }
+      // Se o usuário escolheu uma nova foto, cancelamos a flag de remoção
+      document.getElementById('remover_foto_principal').value = '';
+    }
+
+    // Função para remover uma foto secundária EXISTENTE
+    function removeSecondaryImage(fotoId) {
+        const imageBox = document.getElementById('foto-secundaria-' + fotoId);
+        if (imageBox) {
+            imageBox.style.display = 'none'; // Apenas esconde a imagem
+            
+            // Adiciona um input hidden para informar à view qual imagem remover
+            let removeInput = document.createElement('input');
+            removeInput.type = 'hidden';
+            removeInput.name = 'remover_fotos_secundarias'; // Nome do campo
+            removeInput.value = fotoId; // ID da imagem a ser removida
+            document.querySelector('form').appendChild(removeInput);
+        }
+    }
+
+    // Função para fazer o preview de NOVAS fotos secundárias
+    function previewNewSecondaryImages(event) {
+        const files = event.target.files;
+        const previewContainer = document.getElementById('newSecondaryImagesPreview');
+        previewContainer.innerHTML = '';
+        
+        Array.from(files).forEach(file => {
+            const img = document.createElement('img');
+            img.src = URL.createObjectURL(file);
+            img.onload = () => URL.revokeObjectURL(img.src);
+
+            const imageBox = document.createElement('div');
+            imageBox.classList.add('image-box');
+            imageBox.appendChild(img);
+            previewContainer.appendChild(imageBox);
+        });
+    }
+</script>
+{% endblock %}

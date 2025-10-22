@@ -1,0 +1,61 @@
+<!-- sobre_nos/template/politica_privacidade.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <!-- Inclusão do Font Awesome para ícones e estilos da página -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="{% static 'sobre_nos/politica_privacidade/css/politica_privacidade.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Política de Privacidade{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="box">
+        {% if messages %}
+            <br>
+            <!-- Exibição de mensagens de feedback, se houver -->
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        <!-- Cabeçalho da seção de Política de Privacidade -->
+        <div class="header-box">
+            Política de Privacidade
+        </div>
+        <hr>
+
+        <!-- Seção detalhando a Política de Privacidade -->
+        <div class="policy-section">
+            <h2>Coleta de Dados</h2>
+            <p>Os dados coletados dos usuários incluem informações como nome, email, dados de contato, estado, cidade e cidade.</p>
+            
+            <h2>Utilização de Dados</h2>
+            <p>Os dados dos usuários são utilizados para criar e gerenciar contas de usuário, personalizar a experiência do usuário na plataforma, fornecer suporte ao cliente, análise de dados para melhorar os serviços oferecidos e oferecer sugestões personalizadas com base no tipo e foco do negócio do usuário.</p>
+            
+            <h2>Armazenamento de Dados</h2>
+            <p>Os dados dos usuários são armazenados em um banco de dados, com medidas de segurança adequadas para proteger contra acesso não autorizado ou uso indevido. As informações são armazenadas de forma criptografada e são acessíveis apenas por pessoal autorizado.</p>
+            
+            <h2>Compartilhamento de Dados</h2>
+            <p>Atualmente, não há compartilhamento de dados com terceiros. No entanto, no futuro, caso haja necessidade de compartilhamento de dados para prestação de serviços adicionais, os usuários serão notificados e terão a opção de consentir antes que seus dados sejam compartilhados. Medidas serão tomadas para garantir a proteção dos dados compartilhados.</p>
+            
+            <h2>Cookies e Tecnologias de Rastreamento</h2>
+            <p>A plataforma pode utilizar cookies ou outras tecnologias de rastreamento indiretamente, seja por meio de serviços de API de terceiros ou funcionalidades das próprias tecnologias utilizadas. Essas tecnologias são utilizadas para melhorar a experiência do usuário e coletar informações para análise, mas os usuários têm a opção de gerenciar suas preferências de cookies.</p>
+            
+            <h2>Direitos dos Usuários</h2>
+            <p>Os usuários têm o direito de acessar, corrigir, excluir ou limitar o uso de seus dados pessoais a qualquer momento, conforme previsto pela legislação de proteção de dados aplicável, como a LGPD. Esses direitos podem ser exercidos por meio da área de geenciamento de perfil do usuário na plataforma.</p>
+            
+            <h2>Alterações na Política de Privacidade</h2>
+            <p>A política de privacidade pode ser atualizada periodicamente para refletir mudanças nas práticas de privacidade da plataforma ou em conformidade com as leis aplicáveis. Os usuários serão notificados sobre quaisquer alterações na política e serão encorajados a revisar as atualizações. O uso contínuo da plataforma após as alterações na política será considerado como consentimento às novas práticas de privacidade.</p>
+            
+            <h2>Contato</h2>
+            <p>Para dúvidas ou preocupações sobre a Política de Privacidade ou o tratamento de dados, os usuários podem entrar em contato com a plataforma enviando um e-mail para: <a href="afriendforlifepet@gmail.com">afriendforlifepet@gmail.com</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

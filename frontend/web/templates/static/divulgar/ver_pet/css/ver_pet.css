@@ -1,0 +1,189 @@
+/* ========================================================== */
+/*           ESTILOS DA PÁGINA VER_PET (VERSÃO FINAL)         */
+/* ========================================================== */
+
+/* --- TÍTULO PRINCIPAL --- */
+.header-box {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+/* --- SEÇÃO 1: HERÓI --- */
+.pet-hero {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.coluna-imagem {
+    flex: 0 0 40%;
+    max-width: 450px;
+}
+
+.imagem_principal img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 10px solid transparent;
+    border-image: url('../img/image_border.png') 30 round; /* Caminho para a borda */
+}
+
+.imagem_secundaria {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.imagem_secundaria img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border: 5px solid transparent;
+    border-image: url('../img/image_border.png') 30 round; /* Caminho para a borda */
+}
+
+.imagem_secundaria img:hover {
+    transform: scale(1.1);
+}
+
+.coluna-info-relevante {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- SEÇÃO 2: GRID DE DETALHES --- */
+.pet-details-grid {
+    margin-bottom: 40px;
+}
+
+.pet-details-grid h4,
+.pet-story-section h4 {
+    font-size: 1.8rem;
+    color: var(--color-primary); /* Mantendo sua variável de cor */
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas no grid */
+    gap: 20px;
+}
+
+/* --- COMPONENTES DE INFO (REUTILIZADOS) --- */
+.info-block {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    height: 100%; /* Faz todos os cards terem a mesma altura */
+}
+
+.info-block h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary); /* Mantendo sua variável de cor */
+    margin-bottom: 15px;
+}
+
+.info-item p {
+    margin-bottom: 8px;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+ 
+    font-family: 'Roboto', sans-serif;
+}
+
+.info-list li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.info-list li::before {
+    content: '🐾'; /* Ícone de pata */
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+    top: 0;
+}
+
+/* --- SEÇÃO 3: HISTÓRIA DO PET --- */
+.pet-story-container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.pet-story {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    line-height: 1.8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.pet-story h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+
+}
+
+.pet-story p {
+    color: #555;
+}
+
+/* --- BOTÕES E AÇÕES --- */
+.situacao_pet {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.btn-primary, .btn-success {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #20b358;
+    text-decoration: none;
+    color: rgb(243, 243, 243);
+}
+
+.btn-whatsapp i {
+    margin-right: 10px;
+}

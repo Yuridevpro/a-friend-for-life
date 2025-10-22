@@ -1,0 +1,16 @@
+/* templates/static/perfil/alterar_senha/css/alterar_senha_mdq.css. */
+
+
+@media only screen and (max-width: 768px) {
+    .header-box {
+        font-size: 35px;
+        width: 65vw;
+    }
+    .box {
+        width: 100vw;
+    }
+
+    .profile-info {
+        flex-direction: column; /* Alinha os elementos verticalmente em telas menores */
+    }
+}

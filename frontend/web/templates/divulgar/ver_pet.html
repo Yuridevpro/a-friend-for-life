@@ -1,0 +1,194 @@
+<!-- divulgar/templates/ver_pet.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<!-- Head Links -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link href="{% static 'divulgar/ver_pet/css/ver_pet.css' %}" rel="stylesheet">
+<link href="{% static 'divulgar/ver_pet/css/ver_pet_mdq.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Ver Pet - {{ pet.nome_pet }}{% endblock %}
+
+{% block content %}
+<!-- Main Wrapper -->
+<div class="wrapper">
+    <div class="box">
+        {% if messages %}
+        <!-- Message Alerts -->
+        <br>
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <!-- End Message Alerts -->
+        {% endif %}
+        
+        <!-- Header Box -->
+        <div class="header-box">Informações de {{ pet.nome_pet }}</div>
+        <hr>
+        
+        <!-- ===== SEÇÃO 1: HERÓI (IMAGEM + INFO RELEVANTE) ===== -->
+        <div class="pet-hero">
+            <!-- Coluna da Esquerda: Imagens do Pet -->
+            <div class="coluna-imagem">
+                <div class="imagem_principal">
+                    {% if pet.foto_principal %}
+                        <img id="main-pet-image" src="{{ pet.foto_principal.url }}" alt="Imagem do Pet" class="img-fluid">
+                    {% else %}
+                        <p>Imagem principal não disponível.</p>
+                    {% endif %}
+                </div>
+                <div class="imagem_secundaria">
+                    {% if pet.fotos_secundarias.exists %} 
+                        {% for foto_secundaria in pet.fotos_secundarias.all %}
+                            <img src="{{ foto_secundaria.image.url }}" alt="Imagem secundária do Pet" onclick="trocarImagemPrincipal(this)">
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Coluna da Direita: Informações Relevantes -->
+            <div class="coluna-info-relevante">
+                <div class="info-block">
+                    <h5>Informações do Pet</h5>
+                    <div class="info-item">
+                        <p><strong>Espécie:</strong> <span>{{ pet.especie }}</span></p>
+                        <p><strong>Sexo:</strong> <span>{{ pet.sexo }}</span></p>
+                        <p><strong>Tamanho:</strong> <span>{{ pet.tamanho }}</span></p>
+                    </div>
+                </div>
+                <div class="info-block">
+                    <h5>Contatos do Protetor</h5>
+                    <div class="info-item">
+                        <p><strong>Nome:</strong> <span>{{ pet.usuario.userprofile.nome }} {{ pet.usuario.userprofile.sobrenome }}</span></p>
+                        <p><strong>Email:</strong> <span>{{ pet.usuario.email }}</span></p>
+                        <p><strong>Telefone:</strong> <span>{{ pet.usuario.userprofile.telefone }}</span></p>
+                        <p><strong>Perfil:</strong> <a href="{% url 'perfil_protetor' pet.usuario.id %}">Ver perfil do Protetor</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SEÇÃO 2: GRID DE DETALHES DE PERSONALIDADE E CUIDADOS ===== -->
+        <div class="pet-details-grid">
+            <h4>Detalhes de Personalidade e Cuidados</h4>
+            <div class="info-grid">
+                <div class="info-block">
+                    <h5>Temperamento</h5>
+                    <ul class="info-list">
+                        {% for item in pet.temperamento %}<li>{{ item }}</li>{% endfor %}
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h5>Cuidados</h5>
+                    <ul class="info-list">
+                        {% for item in pet.cuidados %}<li>{{ item }}</li>{% endfor %}
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h5>Vive Bem em:</h5>
+                    <ul class="info-list">
+                        {% for item in pet.vive_bem_em %}<li>{{ item }}</li>{% endfor %}
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h5>Sociável com:</h5>
+                    <ul class="info-list">
+                        {% for item in pet.sociavel_com %}<li>{{ item }}</li>{% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SEÇÃO 3: HISTÓRIA DO PET ===== -->
+        <div class="pet-story-section">
+            <h4>A História de {{ pet.nome_pet }}</h4>
+            <div class="pet-story-container">
+                <div class="pet-story">
+                    <p>{{ pet.historia_pet }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Adoption Status Section -->
+        <div class="situacao_pet">
+            {% if pet.usuario == request.user %}
+            <form method="POST" action="{% url 'ver_pet' pet.id %}" class="adopt-button-container">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Marcar Pet como Adotado</button>
+                <p style="margin-top: 10px; font-size: 1rem;">Seu Pet foi adotado? Marque-o como adotado para que possamos saber.</p>
+            </form>
+            {% endif %}
+        </div>
+        <!-- End Adoption Status Section -->
+
+        <!-- Adoption Button -->
+        {% if pet.usuario != request.user %}
+        <div class="text-center my-4">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adoptionModal">
+                Quero Adotar!
+            </button>
+        </div>
+        
+        <!-- Adoption Modal -->
+        <div class="modal fade" id="adoptionModal" tabindex="-1" role="dialog" aria-labelledby="adoptionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="adoptionModalLabel">Quer adotar {{ pet.nome_pet }}?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Para adotar ou saber mais, entre em contato com o protetor:</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:{{ pet.usuario.email }}">{{ pet.usuario.email }}</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+55{{ pet.usuario.userprofile.telefone }}">+55 {{ pet.usuario.userprofile.telefone }}</a></p>
+                        
+                        <p>
+                            <a href="https://api.whatsapp.com/send?phone=+55{{ pet.usuario.userprofile.telefone | default:'' }}&text=Olá! Vi o anúncio de {{ pet.nome_pet }} no site A Friend for Life e gostaria de mais informações." target="_blank" class="btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                Contatar via WhatsApp
+                            </a>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Adoption Modal -->
+        {% endif %}
+    </div>
+</div>
+<!-- End Main Wrapper -->
+
+<!-- JavaScript for Image Handling and Bootstrap Dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    /**
+     * Função para trocar a imagem principal com uma imagem secundária clicada.
+     * @param {HTMLElement} clickedImageElement - O elemento <img> da miniatura que foi clicado.
+     */
+    function trocarImagemPrincipal(clickedImageElement) {
+        // Captura o elemento da imagem principal pelo seu ID
+        var imagemPrincipal = document.getElementById('main-pet-image');
+
+        // Salva o src (URL da imagem) atual da imagem principal
+        var tempSrc = imagemPrincipal.src;
+
+        // Troca o src da imagem principal com o da imagem clicada
+        imagemPrincipal.src = clickedImageElement.src;
+
+        // Atualiza o src da miniatura clicada com o src que antes era da imagem principal
+        clickedImageElement.src = tempSrc;
+    }
+</script>
+{% endblock %}

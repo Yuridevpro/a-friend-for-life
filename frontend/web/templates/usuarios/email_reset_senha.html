@@ -1,0 +1,115 @@
+<!-- usuarios/templates/email_reset_senha.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Redefinição de Senha</title>
+    <style>
+        /* Estilos para máxima compatibilidade */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fc;
+            font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eaecef;
+        }
+        .email-header {
+            background-color: #2E7D32; /* Verde escuro */
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .email-header h1 {
+            margin: 0;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .email-body {
+            padding: 35px 30px;
+            color: #343a40;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .email-body p {
+            margin: 0 0 20px;
+        }
+        .email-button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .email-button {
+            background-color: #4CAF50; /* Verde principal */
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .email-button:hover {
+            background-color: #388E3C; /* Verde principal mais escuro */
+        }
+        .email-footer {
+            background-color: #2E7D32; /* Verde escuro */
+            color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .email-footer p {
+            margin: 0;
+        }
+
+        /* Media queries para responsividade */
+        @media screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+                margin: 0;
+                border-radius: 0;
+            }
+            .email-body, .email-header, .email-footer {
+                padding: 25px 20px;
+            }
+            .email-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h1>Redefinição de Senha</h1>
+        </div>
+        <div class="email-body">
+            <p>Olá, {{ user.userprofile.nome }},</p>
+            <p>Recebemos uma solicitação para redefinir a senha da sua conta. Se foi você, clique no botão abaixo para criar uma nova senha:</p>
+            <div class="email-button-container">
+                <a href="http://{{ host }}{% url 'criar_senha' uidb64=uidb64 token=token %}" class="email-button">Redefinir Minha Senha</a>
+            </div>
+            <p>Este link é válido por 1 hora. Se você não solicitou esta alteração, pode ignorar este e-mail com segurança.</p>
+        </div>
+        <div class="email-footer">
+            <p>&copy; {% now "Y" %} A Friend For Life. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>
