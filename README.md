@@ -60,35 +60,60 @@ pip install -r requirements.txt
 ```
 
 ### 3. Variáveis de Ambiente
-Crie um arquivo chamado `.env` na pasta `backend/`. Para agilizar a configuração local, você pode copiar e colar o conteúdo abaixo.
+Crie um arquivo chamado `.env` na pasta `backend/`. As variáveis necessárias dependem se você está rodando o projeto para desenvolvimento local ou configurando para produção.
 
-**Configuração Padrão para Desenvolvimento Local:**
+#### **Configuração para Desenvolvimento Local**
+
+Para rodar o projeto em sua máquina, copie o conteúdo abaixo para o seu arquivo `backend/.env`.
+
 ```ini
-# backend/.env
+# --- CONFIGURAÇÕES MÍNIMAS PARA RODAR LOCALMENTE ---
 ENVIRONMENT='development'
 SECRET_KEY='django-insecure-academic-test-key-for-local-use-only'
-```
-*   **Nota sobre a `SECRET_KEY`:** Uma chave padrão foi fornecida para que o projeto funcione imediatamente. Para maior segurança, é recomendado gerar sua própria chave única. Para isso, execute o comando abaixo no seu terminal:
-    ```bash
-    python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
-    ```
-    O terminal irá gerar uma string longa e aleatória, como `y_b9025yvlm(-&scyja3f59...`. **Copie toda essa string** e substitua o valor da `SECRET_KEY` no seu arquivo `.env`.
 
-**Configurações Opcionais (Para habilitar todas as funcionalidades):**
-```ini
-# backend/.env (continue no mesmo arquivo)
+# --- CONFIGURAÇÕES OPCIONAIS PARA TESTAR RECURSOS ---
 
-# Opcional: Para o upload de imagens para o Amazon S3.
-AWS_ACCESS_KEY_ID='sua_chave_aws'
-AWS_SECRET_ACCESS_KEY='sua_chave_secreta_aws'
-AWS_STORAGE_BUCKET_NAME='nome-do-seu-bucket-s3'
-AWS_S3_REGION_NAME='us-east-1'
+# Opcional: Para testar o upload de imagens para o Amazon S3.
+# AWS_ACCESS_KEY_ID='sua_chave_aws'
+# AWS_SECRET_ACCESS_KEY='sua_chave_secreta_aws'
+# AWS_STORAGE_BUCKET_NAME='nome-do-seu-bucket-s3'
+# AWS_S3_REGION_NAME='us-east-1'
 
 # Opcional: Para o envio de e-mails para um provedor real (ex: SendGrid).
 # Se omitido, os e-mails serão impressos no terminal.
+# SENDGRID_API_KEY='sua-chave-api-do-sendgrid'
+# DEFAULT_FROM_EMAIL='seu-email-verificado@exemplo.com'
+```
+*   **Nota sobre a `SECRET_KEY`:** Uma chave padrão foi fornecida para que o projeto funcione imediatamente. Para maior segurança, é recomendado gerar sua própria chave única executando no terminal: `python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"`. Copie a string gerada e cole no valor da `SECRET_KEY`.
+
+#### **Configuração para Produção (Deploy)**
+
+Para fazer o deploy da aplicação em um servidor, todas as variáveis abaixo são necessárias.
+
+```ini
+# backend/.env (Exemplo para Produção)
+
+ENVIRONMENT='production'
+SECRET_KEY='sua-chave-secreta-forte-para-producao'
+
+# Chaves AWS S3 (Obrigatório)
+AWS_ACCESS_KEY_ID='sua_chave_aws_de_producao'
+AWS_SECRET_ACCESS_KEY='sua_chave_secreta_aws_de_producao'
+AWS_STORAGE_BUCKET_NAME='nome-do-seu-bucket-s3'
+AWS_S3_REGION_NAME='us-east-1'
+
+# Chaves de E-mail (Obrigatório)
 SENDGRID_API_KEY='sua-chave-api-do-sendgrid'
 DEFAULT_FROM_EMAIL='seu-email-verificado@exemplo.com'
+
+# Credenciais do Banco de Dados PostgreSQL (Obrigatório)
+DB_NAME='nome_do_banco_postgres'
+DB_USER='usuario_postgres'
+DB_PASSWORD='senha_postgres'
+DB_HOST='host_do_banco_de_dados'
+DB_PORT=5432
 ```
+
 
 ### 4. Banco de Dados e Execução
 **IMPORTANTE:** Todos os comandos `manage.py` devem ser executados de dentro da pasta `backend/src/`.
