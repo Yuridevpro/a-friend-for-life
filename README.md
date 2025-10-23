@@ -117,7 +117,8 @@ cd backend/src
 
 # Execute o comando de teste apontando para a pasta de testes
 python manage.py test ../tests
-```O resultado esperado é a execução de todos os testes com o status **OK**.
+```
+O resultado esperado é a execução de todos os testes com o status **OK**.
 
 ## 🏛️ Arquitetura do Sistema
 
