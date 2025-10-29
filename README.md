@@ -32,11 +32,12 @@ O grande número de animais abandonados e a dificuldade de conexão entre protet
 
 | Funcionalidade | Status | Screenshot |
 | :--- | :--- | :--- |
-| **Autenticação de Usuários:** Cadastro com confirmação via e-mail, login e recuperação de senha. | ✅ Concluído | ![Tela de Cadastro](docs/screenshots/01-tela-cadastro.png) |
-| **Gerenciamento de Perfil:** Visualização completa do perfil do usuário, com seus dados e pets cadastrados. | ✅ Concluído | ![Tela de Perfil do Usuário](docs/screenshots/02-tela-perfil-usuario.png) |
-| **Cadastro e Gestão de Pets:** Formulário completo para cadastrar, editar e remover pets. | ✅ Concluído | ![Tela de Cadastro de Pet](docs/screenshots/03-tela-cadastro-pet.png) |
-| **Listagem e Filtragem de Pets:** Página de adoção com filtros por localização, espécie e tamanho. | ✅ Concluído | ![Tela de Listagem de Pets](docs/screenshots/04-tela-listagem-pets.png) |
-| **Sistema de Depoimentos:** Usuários autenticados podem criar, editar e remover seus depoimentos. | ✅ Concluído | ![Tela de Depoimentos](docs/screenshots/05-tela-depoimentos.png) |
+| **Autenticação de Usuários:** Cadastro com confirmação via e-mail, login e recuperação de senha. | ✅ Concluído | ![Tela de Cadastro](docs/artefatos-etapa-2/screenshots/01-tela-cadastro.png) |
+| **Gerenciamento de Perfil:** Visualização completa do perfil do usuário, com seus dados e pets cadastrados. | ✅ Concluído | ![Tela de Perfil do Usuário](docs/artefatos-etapa-2/screenshots/02-tela-perfil-usuario.png) |
+| **Cadastro e Gestão de Pets:** Formulário completo para cadastrar, editar e remover pets. | ✅ Concluído | ![Tela de Cadastro de Pet](docs/artefatos-etapa-2/screenshots/03-tela-cadastro-pet.png) |
+| **Listagem e Filtragem de Pets:** Página de adoção com filtros por localização, espécie e tamanho. | ✅ Concluído | ![Tela de Listagem de Pets](docs/artefatos-etapa-2/screenshots/04-tela-listagem-pets.png) |
+| **Sistema de Depoimentos:** Usuários autenticados podem criar, editar e remover seus depoimentos. | ✅ Concluído | ![Tela de Depoimentos](docs/artefatos-etapa-2/screenshots/05-tela-depoimentos.png) |
+
 
 ## 🚀 Início Rápido (Ambiente de Desenvolvimento)
 
@@ -212,14 +213,19 @@ projeto-academico/
     └── ...
 ```
 
-### 6. 📄 Documentação de Planejamento (Etapa 1)
+### 6. Documentação da Etapa 1 (Planejamento)
 
-Os artefatos de planejamento, incluindo a análise de escopo, cronograma, MVP e riscos, podem ser consultados nos seguintes documentos:
+Os artefatos de planejamento do projeto (disciplina N705), incluindo a análise de escopo, cronograma e riscos, podem ser consultados nos links abaixo:
 
 -   [**Documento de Escopo e Análise de Stakeholders**](./docs/artefatos-etapa-1/01-escopo-e-stakeholders.md)
 -   [**Cronograma de Desenvolvimento e MVP**](./docs/artefatos-etapa-1/02-cronograma-e-mvp.md)
 -   [**Análise de Riscos e Orçamento**](./docs/artefatos-etapa-1/03-riscos-e-orcamento.md)
--   [**Justificativa das Mudanças Implementadas**](./docs/justificativa_mudancas.md)
+
+### Documentação da Etapa 2 (Implementação)
+
+Artefatos da (disciplina N708) pode ser encontrada nos seguintes links:
+
+-   [**Justificativa das Mudanças Implementadas**](./docs/artefatos-etapa-2/justificativa_mudancas.md)
 
 ## 🤝 Equipe de Desenvolvimento
 
