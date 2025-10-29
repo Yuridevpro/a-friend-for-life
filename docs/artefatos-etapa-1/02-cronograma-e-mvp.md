@@ -31,7 +31,7 @@ O projeto foi organizado em um cronograma Scrum com as seguintes diretrizes:
 
 ### Gráfico de Gantt (Planejamento Visual)
 
-![Gráfico de Gantt](img/grafico-gantt.png)
+![Gráfico de Gantt](img/grafico-gantt.jpg)
 
 ## 4. Mínimo Produto Viável (MVP) - Entregas Planejadas
 
