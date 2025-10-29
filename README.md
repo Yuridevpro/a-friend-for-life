@@ -213,7 +213,7 @@ projeto-academico/
     └── ...
 ```
 
-## 📄 Documentação do Projeto
+### 6. 📄 Documentação do Projeto
 
 Toda a documentação técnica e de planejamento do projeto está organizada na pasta `docs/` e pode ser acessada através dos links abaixo.
 
