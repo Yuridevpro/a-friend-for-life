@@ -213,19 +213,35 @@ projeto-academico/
     └── ...
 ```
 
-### 6. Documentação de Planejamento (Etapa 1)
-Os artefatos de planejamento do projeto (disciplina N705), incluindo a documentação técnica detalhada, podem ser consultados nos links abaixo:
+## 📄 Documentação do Projeto
 
+Toda a documentação técnica e de planejamento do projeto está organizada na pasta `docs/` e pode ser acessada através dos links abaixo.
+
+### Documentação de Planejamento (Etapa 1 - N705)
+
+Esta seção contém todos os artefatos gerados durante a fase de planejamento e concepção do projeto.
+
+#### **Artefatos de Planejamento Geral:**
+-   [**Escopo, Análise de Stakeholders e Problema**](./docs/artefatos-etapa-1/01-escopo-e-stakeholders.md)
+-   [**Cronograma de Desenvolvimento e MVP**](./docs/artefatos-etapa-1/02-cronograma-e-mvp.md)
+-   [**Análise de Riscos e Orçamento**](./docs/artefatos-etapa-1/03-riscos-e-orcamento.md)
+
+#### **Documentação Técnica da Etapa 1:**
 -   [**Requisitos Funcionais e Não-Funcionais**](./docs/requirements/requirements.md)
 -   [**Arquitetura do Sistema**](./docs/architecture/architecture.md)
--   [**Modelo de Dados**](./docs/database/database_model.md)
--   [**Especificação de APIs**](./docs/api/api_specification.md)
+-   [**Modelo de Dados (Diagrama ER)**](./docs/database/database_model.md)
+-   [**Especificação de APIs e Endpoints**](./docs/api/api_specification.md)
 -   [**Protótipos e Fluxos de Usuário**](./docs/prototypes/prototypes.md)
 
-### Documentação da Implementação (Etapa 2)
-A documentação gerada durante a fase de implementação do código (disciplina N708) pode ser encontrada nos seguintes links:
+### Documentação da Implementação (Etapa 2 - N708)
 
--   [**Justificativa das Mudanças Implementadas**](./docs/artefatos-etapa-2/justificativa_mudancas.md)
+Esta seção contém os artefatos gerados durante a fase de codificação e entrega do projeto final.
+
+-   [**Justificativa das Mudanças Implementadas (Etapa 1 vs. Etapa 2)**](./docs/artefatos-etapa-2/justificativa_mudancas.md)
+-   **Screenshots da Aplicação Final:** (Disponíveis na seção `Funcionalidades Implementadas` acima)
+
+
+
 
 ## 🤝 Equipe de Desenvolvimento
 
