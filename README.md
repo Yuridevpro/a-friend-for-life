@@ -213,17 +213,17 @@ projeto-academico/
     └── ...
 ```
 
-### 6. Documentação da Etapa 1 (Planejamento)
+### 6. Documentação de Planejamento (Etapa 1)
+Os artefatos de planejamento do projeto (disciplina N705), incluindo a documentação técnica detalhada, podem ser consultados nos links abaixo:
 
-Os artefatos de planejamento do projeto (disciplina N705), incluindo a análise de escopo, cronograma e riscos, podem ser consultados nos links abaixo:
+-   [**Requisitos Funcionais e Não-Funcionais**](./docs/requirements/requirements.md)
+-   [**Arquitetura do Sistema**](./docs/architecture/architecture.md)
+-   [**Modelo de Dados**](./docs/database/database_model.md)
+-   [**Especificação de APIs**](./docs/api/api_specification.md)
+-   [**Protótipos e Fluxos de Usuário**](./docs/prototypes/prototypes.md)
 
--   [**Documento de Escopo e Análise de Stakeholders**](./docs/artefatos-etapa-1/01-escopo-e-stakeholders.md)
--   [**Cronograma de Desenvolvimento e MVP**](./docs/artefatos-etapa-1/02-cronograma-e-mvp.md)
--   [**Análise de Riscos e Orçamento**](./docs/artefatos-etapa-1/03-riscos-e-orcamento.md)
-
-### Documentação da Etapa 2 (Implementação)
-
-Artefatos da (disciplina N708) pode ser encontrada nos seguintes links:
+### Documentação da Implementação (Etapa 2)
+A documentação gerada durante a fase de implementação do código (disciplina N708) pode ser encontrada nos seguintes links:
 
 -   [**Justificativa das Mudanças Implementadas**](./docs/artefatos-etapa-2/justificativa_mudancas.md)
 
