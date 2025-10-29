@@ -212,6 +212,15 @@ projeto-academico/
     └── ...
 ```
 
+### 6. 📄 Documentação de Planejamento (Etapa 1)
+
+Os artefatos de planejamento, incluindo a análise de escopo, cronograma, MVP e riscos, podem ser consultados nos seguintes documentos:
+
+-   [**Documento de Escopo e Análise de Stakeholders**](./docs/artefatos-etapa-1/01-escopo-e-stakeholders.md)
+-   [**Cronograma de Desenvolvimento e MVP**](./docs/artefatos-etapa-1/02-cronograma-e-mvp.md)
+-   [**Análise de Riscos e Orçamento**](./docs/artefatos-etapa-1/03-riscos-e-orcamento.md)
+-   [**Justificativa das Mudanças Implementadas**](./docs/justificativa_mudancas.md)
+
 ## 🤝 Equipe de Desenvolvimento
 
 | Nome | Papel |
