@@ -8,6 +8,8 @@ Sistema web completo para conectar protetores de animais a pessoas interessadas 
 **Acesse a aplicação em produção no seguinte link:**
 ### [https://um-amigo-for-life02.onrender.com/](https://um-amigo-for-life02.onrender.com/)
 
+*   **Aviso:** A aplicação está hospedada no plano gratuito do Render. Após um período de inatividade, o servidor "dorme" para economizar recursos. O **primeiro acesso pode levar de 30 a 60 segundos** para carregar enquanto o sistema "acorda". Os acessos seguintes serão instantâneos.
+
 ### Credenciais para Avaliação
 Para facilitar a avaliação das funcionalidades que exigem autenticação, um usuário de teste foi pré-cadastrado no ambiente de produção.
 *   **Email:** `usertest2156@gmail.com`
