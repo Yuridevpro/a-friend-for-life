@@ -4,7 +4,7 @@
 
 Este documento detalha e justifica as principais mudanças implementadas na Etapa 2 (Implementação) em relação ao planejamento original e protótipos da Etapa 1 (projeto "AdoPets").
 
-O projeto manteve integralmente seus objetivos centrais, o escopo funcional e a vinculação com o ODS 11. As alterações realizadas durante o desenvolvimento visaram aprimorar a experiência do usuário (UX), estabelecer uma identidade visual (UI) mais forte e amigável, garantir a viabilidade técnica e adicionar funcionalidades que enriqueceram a plataforma, resultando em um produto final mais robusto e completo sob o novo nome: **"A Friend for Life"**.
+O projeto manteve integralmente seus objetivos centrais e o escopo funcional, evoluindo significativamente com base no feedback do público-alvo e na necessidade de garantir a viabilidade técnica. As alterações visaram aprimorar a experiência do usuário (UX), estabelecer uma identidade visual (UI) mais forte, e adicionar funcionalidades que enriqueceram a plataforma, resultando em um produto final mais robusto e completo sob o novo nome: **"A Friend for Life"**.
 
 ---
 
@@ -12,49 +12,47 @@ O projeto manteve integralmente seus objetivos centrais, o escopo funcional e a 
 
 #### **Justificativa Geral da Evolução do Design:**
 
-O protótipo inicial ("AdoPets") serviu como um wireframe de alta fidelidade, focando na estrutura e disposição dos elementos. Para o projeto final ("A Friend for Life"), foi desenvolvida uma identidade visual completa e coesa. A paleta de cores, centrada em tons de roxo e lilás, foi escolhida para transmitir uma sensação de cuidado, tranquilidade e afeto, temas centrais da adoção de animais. A tipografia foi refinada para melhorar a legibilidade, e elementos gráficos como o fundo de "patinhas" foram adicionados para criar uma atmosfera mais imersiva e temática, reforçando a conexão emocional com o usuário.
+O protótipo inicial ("AdoPets") servia como um wireframe funcional, com um design sóbrio e focado na estrutura. Durante a validação, um feedback recorrente foi o desejo por uma identidade mais acolhedora. Como sugerido por uma participante, a primeira versão parecia "um pouco ruim de ver as coisas".
+
+Acolhendo essa crítica, o projeto final "A Friend for Life" desenvolveu uma identidade visual completa. A paleta de cores foi alterada do azul marinho para tons de **roxo e lilás**, escolhidos para transmitir cuidado e afeto. A validação posterior confirmou o sucesso dessa mudança: **100% dos respondentes** avaliaram que a nova identidade visual reflete bem a proposta de adoção. Elementos gráficos, como o fundo de "patinhas", foram adicionados para criar uma atmosfera imersiva, reforçando a conexão emocional com o usuário.
 
 #### **Alterações Específicas nas Telas:**
 
-*   **Telas de Autenticação (Cadastro, Login, Esqueci a Senha):**
-    *   **O que mudou:** O layout de duas colunas foi mantido, mas a identidade visual foi completamente refeita. O lado esquerdo agora utiliza a cor primária sólida (roxo), e o lado direito apresenta uma ilustração temática que reforça a missão do projeto. O nome do projeto e o logo foram atualizados para "A Friend for Life".
-    *   **Por que mudou:** A mudança cria um impacto visual imediato, estabelece a nova marca e torna a experiência de entrada no sistema mais agradável e alinhada com a proposta afetiva da plataforma.
+*   **Telas de Autenticação (Cadastro, Login, etc.):**
+    *   **O que mudou:** O layout de duas colunas foi mantido, mas a identidade visual foi completamente refeita com a nova paleta de cores e uma ilustração temática que reforça a missão do projeto.
+    *   **Por que mudou:** A mudança cria um impacto visual imediato, estabelece a nova marca e torna a experiência de entrada no sistema mais agradável, alinhada com a proposta afetiva validada pelo público. O processo de cadastro foi avaliado como "eficiente" por **87,5%** dos usuários no formulário de feedback.
 
 *   **Formulários (Cadastro de Usuário e de Pet):**
-    *   **O que mudou:** Os formulários foram redesenhados para maior clareza e usabilidade. No protótipo, os campos de características do pet usavam "tags" clicáveis. Na versão final, foram utilizados checkboxes e radio buttons, que são elementos de formulário mais padronizados e intuitivos para a seleção de múltiplas opções. Foi adicionada a indicação de campos obrigatórios (`*Obrigatório`) para guiar melhor o usuário.
-    *   **Por que mudou:** A troca para checkboxes melhora a acessibilidade e a experiência do usuário, pois é um padrão de interação universalmente reconhecido. A indicação de obrigatoriedade reduz a chance de erros no preenchimento.
+    *   **O que mudou:** Os formulários foram redesenhados para maior clareza. As "tags" clicáveis do protótipo para as características do pet foram substituídas por **checkboxes**. Foi adicionada a indicação de campos obrigatórios (`*Obrigatório`).
+    *   **Por que mudou:** A troca para checkboxes melhora a acessibilidade e a usabilidade, pois é um padrão de interação universal. Embora uma protetora tenha questionado a quantidade de dados, a maioria dos adotantes (87,5%) considerou que "a plataforma oferece informações suficientes", validando a decisão de manter os campos detalhados para garantir um "match" mais responsável.
 
-*   **Página de Listagem de Pets (Adotar):**
-    *   **O que mudou:** Os cards dos pets foram completamente redesenhados. Na versão final, eles são mais ricos em informação visual: incluem ícones para espécie e sexo, a localização (cidade/estado), uma breve descrição, e um indicador visual para o tamanho do pet. A paleta de cores foi aplicada para diferenciar gênero (ícones e nomes).
-    *   **Por que mudou:** O objetivo foi fornecer o máximo de informações úteis ao usuário "de relance", permitindo que ele tome decisões mais rápidas sobre em qual perfil clicar. Isso otimiza a jornada de busca e torna a interface mais informativa e visualmente agradável.
-
-*   **Página de Detalhes do Pet ("Ver Pet"):**
-    *   **O que mudou:** O layout foi completamente reestruturado para ser mais organizado e visualmente agradável. O protótipo apresentava as informações em uma única coluna. A versão final divide a página em seções claras e distintas:
-        1.  Uma área de destaque com a foto principal, a galeria de imagens secundárias e as informações essenciais do pet e do protetor.
-        2.  Um grid de "cards" para as características (Temperamento, Cuidados, etc.), tornando-as mais fáceis de escanear.
-        3.  Uma seção dedicada e centralizada para "A História do Pet".
-    *   **Por que mudou:** A nova estrutura melhora drasticamente a hierarquia da informação. O usuário consegue absorver os dados mais importantes rapidamente na primeira seção e depois explorar os detalhes de personalidade e a história do animal de forma mais focada. O uso de cards e seções separadas quebra o conteúdo, tornando a leitura menos cansativa e a experiência geral muito mais intuitiva.
+*   **Página de Listagem e Detalhes do Pet:**
+    *   **O que mudou:** Os cards e a página de detalhes foram redesenhados para incluir mais informações visuais rápidas (ícones de gênero/espécie, indicadores de tamanho, etc.). A estrutura da página de detalhes foi dividida em seções claras (Informações, Contatos, Personalidade, História).
+    *   **Por que mudou:** A mudança foi validada pelo feedback: **87,5%** dos usuários concordaram que as informações sobre os animais estão "bem organizadas e acessíveis". O novo layout permite que o usuário absorva os dados importantes rapidamente antes de decidir entrar em contato.
 
 *   **Página de Perfil do Usuário:**
-    *   **O que mudou:** O perfil no protótipo era mais simples. A versão final apresenta um layout mais limpo, com destaque para as ações principais ("Cadastrar novo animal", "Ver contatos") e para as métricas ("Animais divulgados", "Animais adotados"). A listagem dos pets do usuário agora utiliza os mesmos cards redesenhados, com a adição dos botões "Editar" e "Remover".
-    *   **Por que mudou:** O novo design organiza melhor as informações e foca nas ações que o protetor mais precisa realizar, melhorando a eficiência do gerenciamento de seus anúncios.
+    *   **O que mudou:** O design foi limpo, com destaque para as ações principais ("Cadastrar novo animal") e métricas de sucesso ("Animais adotados"). Os botões "Editar" e "Remover" foram adicionados aos cards dos pets.
+    *   **Por que mudou:** O novo design foca nas ações que o protetor precisa realizar, melhorando a eficiência do gerenciamento de seus anúncios.
 
 ---
 
-## 3. Mudanças e Adições de Funcionalidade
+## 3. Mudanças e Adições de Funcionalidade (Baseadas em Feedback)
 
-Durante a implementação, novas funcionalidades foram adicionadas para enriquecer a plataforma e atender a necessidades identificadas durante o desenvolvimento.
+A implementação não apenas seguiu o plano, mas também incorporou novas funcionalidades que surgiram da interação com os usuários e da maturação do projeto.
 
 *   **Funcionalidade Adicionada: Sistema de Depoimentos (Página Completa)**
-    *   **Justificativa:** O protótipo não previa uma seção de depoimentos. Foi decidido adicionar esta funcionalidade para criar "prova social" e engajamento. Permitir que usuários compartilhem suas histórias de adoção bem-sucedidas inspira confiança em novos usuários e reforça o impacto positivo da plataforma. A funcionalidade implementada permite que o usuário crie, edite e delete seu próprio depoimento.
+    *   **Justificativa:** Esta funcionalidade não existia no protótipo. Foi adicionada para criar "prova social". A validação confirmou sua importância: **75%** dos usuários sentiram que a plataforma transmite "confiança e segurança", e os depoimentos contribuem para essa percepção. A sugestão de evoluir para um sistema de "estrelas ou curtidas" foi anotada para futuras versões.
 
 *   **Funcionalidade Adicionada: Páginas Institucionais (App `sobre_nos`)**
-    *   **Justificativa:** Páginas como "Quem Somos", "Termos de Serviço" e "Política de Privacidade" não estavam no escopo visual do protótipo inicial, mas são essenciais para qualquer aplicação web séria. Elas foram adicionadas para garantir a transparência, a credibilidade e a conformidade legal da plataforma.
+    *   **Justificativa:** Páginas como "Quem Somos", "Termos de Serviço" e "Política de Privacidade" foram adicionadas para garantir a transparência e credibilidade da plataforma, elementos essenciais para um projeto que lida com a confiança de seus usuários.
 
-*   **Funcionalidade Modificada: Fluxo de Autenticação**
-    *   **Justificativa:** O fluxo de autenticação foi implementado com robustez adicional, incluindo a **confirmação de cadastro por e-mail** e um fluxo completo de **recuperação de senha**. Essas etapas, embora não detalhadas visualmente no protótipo, são cruciais para a segurança das contas dos usuários e a integridade da plataforma.
+*   **Funcionalidade Modificada: Fluxo de Autenticação Completo**
+    *   **Justificativa:** O fluxo de autenticação foi implementado com **confirmação por e-mail** e **recuperação de senha**. Embora não detalhadas visualmente no protótipo, são cruciais para a segurança das contas, um ponto valorizado pelos usuários na pesquisa.
 
 *   **Funcionalidade Adicionada: Marcar Pet como "Adotado"**
-    *   **Justificativa:** No protótipo, a gestão do pet se resumia a editar ou remover. Na prática, percebeu-se a necessidade de um status intermediário. A função "Marcar como Adotado" permite que o protetor mantenha o anúncio em seu histórico, contribua para as métricas de sucesso da plataforma e informe claramente aos outros usuários que aquele pet já encontrou um lar, sem precisar apagar todo o registro.
+    *   **Justificativa:** No protótipo, a gestão se resumia a editar/remover. A função "Marcar como Adotado" foi adicionada como uma necessidade prática para protetores, permitindo-lhes manter um histórico de sucesso e informar claramente o status do animal.
+
+*   **Funcionalidade Planejada: Sistema de Recomendação**
+    *   **Justificativa:** Durante a validação, uma *key user* sugeriu um sistema de recomendação de pets semelhantes. Embora não implementada nesta versão por extrapolar o escopo inicial, a sugestão foi registrada e validada como uma melhoria prioritária para o futuro, mostrando que o projeto está aberto à evolução contínua baseada no feedback do usuário.
 
 ---

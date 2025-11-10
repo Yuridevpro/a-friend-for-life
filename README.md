@@ -237,9 +237,12 @@ Esta seção contém todos os artefatos gerados durante a fase de planejamento e
 
 ### Documentação da Implementação (Etapa 2 - N708)
 
-Esta seção contém os artefatos gerados durante a fase de codificação e entrega do projeto final.
+Esta seção contém os artefatos gerados durante a fase de codificação e entrega do projeto final, incluindo a validação com o público-alvo.
 
 -   [**Justificativa das Mudanças Implementadas (Etapa 1 vs. Etapa 2)**](./docs/artefatos-etapa-2/justificativa_mudancas.md)
+-   [**Relatório de Validação com Público-Alvo**](./validation/validation_report.md)
+-   [**Definição do Público-Alvo e Personas**](./validation/target_audience.md)
+-   [**Feedback Detalhado Coletado**](./validation/feedback/feedback-coletado.md)
 -   **Screenshots da Aplicação Final:** (Disponíveis na seção `Funcionalidades Implementadas` acima)
 
 
