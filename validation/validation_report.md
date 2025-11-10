@@ -62,31 +62,31 @@ Após a apresentação, foi enviado um formulário de feedback aos participantes
 
 ### Evidências do Feedback (Gráficos)
 
-![Gráfico 1: Avaliação Visual](evidence/graficos-feedback/01-grafico.png)
+![Gráfico 1: Avaliação Visual](feedback/graficos-feedback/01-grafico.png)
 *1. O sistema está visualmente agradável?*
 
-![Gráfico 2: Navegação](evidence/graficos-feedback/02-grafico.png)
+![Gráfico 2: Navegação](feedback/graficos-feedback/02-grafico.png)
 *2. A navegação na plataforma é intuitiva?*
 
-![Gráfico 3: Organização das Informações](evidence/graficos-feedback/03-grafico.png)
+![Gráfico 3: Organização das Informações](feedback/graficos-feedback/03-grafico.png)
 *3. As informações sobre os animais estão bem organizadas?*
 
-![Gráfico 4: Confiança e Segurança](evidence/graficos-feedback/04-grafico.png)
+![Gráfico 4: Confiança e Segurança](feedback/graficos-feedback/04-grafico.png)
 *4. A plataforma transmite confiança e segurança?*
 
-![Gráfico 5: Cadastro](evidence/graficos-feedback/05-grafico.png)
+![Gráfico 5: Cadastro](feedback/graficos-feedback/05-grafico.png)
 *5. O processo de cadastramento parece ser eficiente?*
 
-![Gráfico 6: Suficiência das Informações](evidence/graficos-feedback/06-grafico.png)
+![Gráfico 6: Suficiência das Informações](feedback/graficos-feedback/06-grafico.png)
 *6. A plataforma oferece informações suficientes sobre cada animal?*
 
-![Gráfico 7: Identidade Visual](evidence/graficos-feedback/07-grafico.png)
+![Gráfico 7: Identidade Visual](feedback/graficos-feedback/07-grafico.png)
 *7. A identidade visual reflete bem a proposta de adoção?*
 
-![Gráfico 8: Localização de Elementos](evidence/graficos-feedback/08-grafico.png)
+![Gráfico 8: Localização de Elementos](feedback/graficos-feedback/08-grafico.png)
 *8. É fácil localizar os elementos de interação?*
 
-![Gráfico 9: Recomendação](evidence/graficos-feedback/09-grafico.png)
+![Gráfico 9: Recomendação](feedback/graficos-feedback/09-grafico.png)
 *9. Você recomendaria esta plataforma?*
 
 ### Principais Sugestões de Melhorias Recebidas
@@ -98,7 +98,7 @@ Após a apresentação, foi enviado um formulário de feedback aos participantes
 - **Sugestão 3: Sistema de Avaliação Quantitativa:** Outra participante sugeriu um sistema complementar aos depoimentos: *“Vocês já pensaram em permitir que as pessoas deixem avaliações com estrelas ou curtidas...?”*
 
 - **Comentários Adicionais do Formulário:**
-  ![Comentários Adicionais](evidence/graficos-feedback/10-comentarios-adicionais.png)
+  ![Comentários Adicionais](feedback/graficos-feedback/10-comentarios-adicionais.png)
 
 ## 3. Ajustes Implementados e Próximos Passos
 
