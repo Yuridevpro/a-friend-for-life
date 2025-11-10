@@ -20,7 +20,7 @@ Este arquivo centraliza os principais feedbacks qualitativos recebidos durante a
 
 Abaixo estão os comentários abertos recebidos através do formulário de feedback:
 
-![Comentários Adicionais](feedback/graficos-feedback/10-comentarios-adicionais.png)
+![Comentários Adicionais](graficos-feedback/10-comentarios-adicionais.png)
 
 - **Pontos Positivos Notáveis:**
   - "Tudo lindo o site é muito bom"
