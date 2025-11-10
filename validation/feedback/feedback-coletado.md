@@ -8,11 +8,11 @@ Este arquivo centraliza os principais feedbacks qualitativos recebidos durante a
   - **Sugestão:** *“É possível ao ver o animal com suas informações, ter outros sendo sugeridos de acordo com o que estou vendo?”*
     - **Análise:** Desejo por um sistema de recomendação para melhorar a descoberta de pets.
 
-- **Protetora (não identificada):**
+- **Protetora:**
   - **Crítica:** *“Acredito que quem tem muitos animais disponíveis, pode cansar ao preencher tantos dados.”*
     - **Análise:** Preocupação com a eficiência do formulário de cadastro de pets para usuários com alto volume.
 
-- **Participante (não identificada):**
+- **Participante:**
   - **Sugestão:** *“Vocês já pensaram em permitir que as pessoas deixem avaliações com estrelas ou curtidas, como em outras plataformas, para complementar os depoimentos?”*
     - **Análise:** Ideia para aumentar o engajamento e a prova social com métricas quantitativas.
 
@@ -20,7 +20,7 @@ Este arquivo centraliza os principais feedbacks qualitativos recebidos durante a
 
 Abaixo estão os comentários abertos recebidos através do formulário de feedback:
 
-![Comentários Adicionais](../evidence/graficos-feedback/10-comentarios-adicionais.png)
+![Comentários Adicionais](feedback/graficos-feedback/10-comentarios-adicionais.png)
 
 - **Pontos Positivos Notáveis:**
   - "Tudo lindo o site é muito bom"
