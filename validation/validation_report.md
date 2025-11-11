@@ -60,6 +60,10 @@ As evidências fotográficas desta apresentação estão documentadas abaixo.
 
 Após a apresentação, foi enviado um formulário de feedback aos participantes para coletar suas impressões de forma estruturada. As respostas, em conjunto com os comentários feitos durante a reunião, formaram a base para a validação.
 
+O formulário utilizado para a coleta dos dados pode ser acessado através do seguinte link:
+**[Acessar Formulário de Feedback](https://docs.google.com/forms/d/e/1FAIpQLScDNI_jWJQUsYp7bdKRjDrJy_w8ZMXk6w1KV1M7CjtUFWMUTw/viewform)**
+
+
 ### Evidências do Feedback (Gráficos)
 
 ![Gráfico 1: Avaliação Visual](feedback/graficos-feedback/01-grafico.png)
