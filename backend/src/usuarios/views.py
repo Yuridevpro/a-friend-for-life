@@ -318,3 +318,57 @@ def sair(request):
     logout(request)
     messages.info(request, 'Você saiu da sua conta com sucesso.')
     return redirect('login')
+
+# Adicione esta função no final do arquivo backend/src/usuarios/views.py
+
+def reenviar_ativacao(request):
+    """
+    Permite que um usuário com conta inativa solicite um novo e-mail de ativação.
+    - Se GET, exibe o formulário para inserir o e-mail.
+    - Se POST, verifica se existe um usuário inativo com o e-mail fornecido,
+      deleta o token de ativação antigo, cria um novo e o reenvia.
+    """
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        try:
+            user = User.objects.get(email=email)
+            # Verifica se a conta já está ativa
+            if user.is_active:
+                messages.info(request, 'Esta conta já está ativa. Você pode fazer o login.')
+                return redirect('login')
+            
+            # Deleta tokens de ativação antigos para este usuário
+            Ativacao.objects.filter(user=user).delete()
+            
+            # Cria um novo token de ativação
+            token = get_random_string(length=32)
+            Ativacao.objects.create(
+                user=user,
+                confirmation_token=token,
+                confirmation_token_expiration=timezone.now() + timedelta(days=1)
+            )
+            
+            # Prepara o contexto para o e-mail
+            context = {
+                'user': user,
+                'uidb64': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': token,
+            }
+
+            # Envia o novo e-mail
+            enviar_email_com_template(
+                request,
+                subject='Novo Link de Ativação - A Friend for Life',
+                template_name='usuarios/email_confirmacao.html', # Reutiliza o mesmo template
+                context=context,
+                recipient_list=[user.email]
+            )
+            
+            messages.success(request, 'Um novo e-mail de ativação foi enviado. Verifique sua caixa de entrada e também a pasta de SPAM.')
+            return redirect('login')
+            
+        except User.DoesNotExist:
+            messages.error(request, 'Nenhum usuário inativo encontrado com este e-mail.')
+            return redirect('reenviar_ativacao')
+
+    return render(request, 'usuarios/reenviar_ativacao.html')
