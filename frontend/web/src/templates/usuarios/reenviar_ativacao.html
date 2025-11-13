@@ -1,0 +1,55 @@
+<!-- frontend/web/src/templates/usuarios/reenviar_ativacao.html -->
+{% load static %}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reenviar E-mail de Ativação</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'usuarios/cadastro/css/cadastro.css' %}" rel="stylesheet">
+    <link href="{% static 'usuarios/cadastro/css/cadastro_mdq.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5 col-12 bg-side">
+            <div class='header'>
+                <img class="logo-top" src="{% static 'base/img/logo.png' %}">
+                <header>A friend for life</header>
+            </div>
+
+            <div class="body-form">
+                {% if messages %}
+                    <br>
+                    {% for message in messages %}
+                        <div class="alert {{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <h2>Reenviar e-mail de ativação</h2>
+                <p class="text-white-50">Não recebeu o e-mail ou o link expirou? Digite seu e-mail abaixo para enviarmos um novo link.</p>
+                <hr>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Digite o e-mail do seu cadastro..." name="email" required>
+                    </div>
+                    
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-custom-primary">ENVIAR NOVO LINK</button>
+                    </div>
+                </form>
+
+                <a href="{% url 'login' %}" class="link-float mt-3">Voltar para o Login</a>
+            </div>
+        </div>
+        <div class="col-md-7 col-12 fundo">
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
