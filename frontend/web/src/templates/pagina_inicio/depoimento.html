@@ -1,4 +1,4 @@
-<!-- pagina_inicio/templates/depoimento.html -->
+<!-- pagina_inicio/templates/pagina_inicio/depoimento.html (VERSÃO CORRIGIDA) -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -49,16 +49,25 @@
                         <textarea class="form-control" id="mensagem" style="color: black;" name="mensagem" rows="5" required placeholder="Como foi sua adoção? O que o pet trouxe para sua vida? Qual a importância de adotarmos um pet?"></textarea>
                     {% endif %}
                 </div>
+                
+              
                 <div class="mt-3 text-center">
                     <p class="text-muted">Para editar seu depoimento, envie um novo.</p>
-                    <button type="submit" class="btn btn-primary" name="acao" value="editar">Enviar Depoimento</button>
-                    {% if depoimento %}
-                        <!-- Botão para abrir o modal de confirmação -->
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
-                            Deletar Depoimento
-                        </button>
-                    {% endif %}
+                    
+                    <!-- Envolve os botões em um contêiner d-grid para empilhá-los -->
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary" name="acao" value="editar">Enviar Depoimento</button>
+                        
+                        {% if depoimento %}
+                            <!-- Botão para abrir o modal de confirmação -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                                Deletar Depoimento
+                            </button>
+                        {% endif %}
+                    </div>
                 </div>
+               
+
             </form>
         </div>
     </div>
