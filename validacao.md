@@ -167,3 +167,6 @@ Depois que trouxe o projeto pra maquina da para realizar alguns testes como esse
 **5.2 - Páginas Institucionais:**
 *   No rodapé, clique nos links "Quem somos", "Termos de serviço" e "Política de privacidade".
 *   **Resultado Esperado:** Cada link deve levar à página de conteúdo correspondente.
+
+**6 - testar o design em telas mobile**
+
