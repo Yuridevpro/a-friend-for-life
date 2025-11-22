@@ -71,7 +71,7 @@ Para rodar o projeto em sua máquina, copie o conteúdo abaixo para o seu arquiv
 
 ```ini
 # --- CONFIGURAÇÕES MÍNIMAS PARA RODAR LOCALMENTE ---
-ENVIRONMENT='development'
+ENVIRONMENT=development
 SECRET_KEY='django-insecure-academic-test-key-for-local-use-only'
 
 # --- CONFIGURAÇÕES OPCIONAIS PARA TESTAR RECURSOS ---
