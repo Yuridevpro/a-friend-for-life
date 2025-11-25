@@ -111,10 +111,10 @@ def perfil_protetor(request, user_id):
         messages.error(request, 'Este usuário não possui um perfil.')
         return redirect('login')
 
-    # ***** INÍCIO DA CORREÇÃO *****
+   
     # Busca apenas os pets que estão ativos E com status "Para adoção".
     pets = Pet.objects.filter(usuario=user, is_active=True, status='P') 
-    # ***** FIM DA CORREÇÃO *****
+
     
     # As contagens devem considerar todos os pets, incluindo os já adotados, para as métricas.
     pets_divulgados = Pet.objects.filter(usuario=user, is_active=True).count()
