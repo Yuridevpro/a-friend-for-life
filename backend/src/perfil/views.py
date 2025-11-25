@@ -87,6 +87,8 @@ def meu_perfil(request):
     return render(request, 'perfil/meu_perfil.html', context)
     
 
+# backend/src/perfil/views.py
+
 def perfil_protetor(request, user_id):
     """
     Exibe a página de perfil público de qualquer protetor.
@@ -109,9 +111,13 @@ def perfil_protetor(request, user_id):
         messages.error(request, 'Este usuário não possui um perfil.')
         return redirect('login')
 
-    # Busca os pets ativos do protetor.
-    pets = Pet.objects.filter(usuario=user, is_active=True) 
-    pets_divulgados = pets.count()
+    # ***** INÍCIO DA CORREÇÃO *****
+    # Busca apenas os pets que estão ativos E com status "Para adoção".
+    pets = Pet.objects.filter(usuario=user, is_active=True, status='P') 
+    # ***** FIM DA CORREÇÃO *****
+    
+    # As contagens devem considerar todos os pets, incluindo os já adotados, para as métricas.
+    pets_divulgados = Pet.objects.filter(usuario=user, is_active=True).count()
     pets_adotados = Pet.objects.filter(usuario=user, status='A').count()
 
     # Lógica de paginação idêntica à de `meu_perfil`.
