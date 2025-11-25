@@ -1,4 +1,4 @@
-<!-- perfil/templates/perfil_protetor -->
+<!-- frontend/web/src/templates/perfil/perfil_protetor.html (VERSÃO CORRIGIDA) -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -73,23 +73,19 @@
                 <!-- Contadores de pets divulgados e adotados -->
                 <div class="counters">
                     <div class="counter">
-                        <span class="number">{{ pets_divulgados }}</span>  <!-- Contagem de animais divulgados -->
+                        <span class="number">{{ pets_divulgados }}</span>
                         <p>Animais divulgados</p>
                     </div>
                     <div class="counter">
                         <span class="number">{{ pets_adotados }}</span>
-                        <p>Animais divulgados adotados</p>
+                        <p>Animais adotados</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Cabeçalho para a lista de pets -->
-        {% if is_owner %}
-            <div class="header-box">Meus Pets</div>
-        {% else %}
-            <div class="header-box">Pets divulgados por {{ user.userprofile.nome }} {{ user.userprofile.sobrenome }}</div> 
-        {% endif %}
+        <div class="header-box">Pets divulgados por {{ user.userprofile.nome }} {{ user.userprofile.sobrenome }}</div> 
         
         <hr style="color: gray;">
 
@@ -127,26 +123,11 @@
                                     <h3 class="card-title {% if pet.sexo == 'Macho' %}macho{% elif pet.sexo == 'Fêmea' %}femea{% endif %}">{{ pet.nome_pet }}</h3>
                                     <h6 class="card-text">{{ user_profile.estado_nome }} / {{ user_profile.cidade_nome }}</h6>
                                 </div>
-                                <div class="temperamento">
-                                    <!-- Exibição dos temperamentos do pet -->
-                                    {% for temperamento in pet.temperamento %}
-                                        <span>
-                                            {% if temperamento == 'Agressivo' %}
-                                                <i class="fas fa-angry"></i>
-                                            {% elif temperamento == 'Arisco' %}
-                                                <i class="fas fa-exclamation-circle"></i>
-                                            {% elif temperamento == 'Brincalhão' %}
-                                                <i class="fas fa-smile"></i>
-                                            {% elif temperamento == 'Calmo' %}
-                                                <i class="fas fa-laugh-beam"></i>
-                                            {% elif temperamento == 'Carente' %}
-                                                <i class="fas fa-heart-broken"></i>
-                                            {% elif temperamento == 'Docil' %}
-                                                <i class="fas fa-heartbeat"></i>
-                                            {% endif %}
-                                        </span>
-                                    {% endfor %}
-                                </div>
+                                
+                                <!-- ***** INÍCIO DA CORREÇÃO ***** -->
+                                <!-- O BLOCO <div class="temperamento">...</div> FOI REMOVIDO DESTA ÁREA -->
+                                <!-- ***** FIM DA CORREÇÃO ***** -->
+
                                 <div class="descricao">
                                     <span class="short-description">{{ pet.historia_pet|truncatechars_html:90 }}</span>
                                 </div>
@@ -171,15 +152,13 @@
                             </div>
                         </div>
 
-                        {% if user != is_owner %}
                         <div class="d-flex justify-content-center btnadotar">
                             <a href="{% url 'ver_pet' pet.id %}">Adotar</a>
                         </div>
-                        {% endif %}
                     </div>
                 {% endfor %}
             {% else %}
-                <p>Este usuário ainda não cadastrou nenhum pet.</p>
+                <p>Este usuário ainda não divulgou nenhum pet para adoção.</p>
             {% endif %}
         </div>
 
@@ -209,5 +188,4 @@
         </nav>
     </div>
 </div>
-
 {% endblock %}
