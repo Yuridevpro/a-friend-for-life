@@ -89,7 +89,7 @@ SECRET_KEY='django-insecure-academic-test-key-for-local-use-only'
 ```
 *   **Nota sobre a `SECRET_KEY`:** Uma chave padrão foi fornecida para que o projeto funcione imediatamente. Para maior segurança, é recomendado gerar sua própria chave única executando no terminal: `python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"`. Copie a string gerada e cole no valor da `SECRET_KEY`.
 
-*   **Solução de Problemas:** Se você encontrar o erro `CommandError: You must set settings.ALLOWED_HOSTS if DEBUG is False`, isso significa que a variável `ENVIRONMENT` não foi lida corretamente. Tente adicionar aspas simples ao redor do valor: `ENVIRONMENT='development'`. Isso pode resolver o problema dependendo do seu sistema operacional.
+*   **Solução de Problemas:** Se você encontrar o erro `CommandError: You must set settings.ALLOWED_HOSTS if DEBUG is False`, isso significa que a variável `ENVIRONMENT` não foi lida corretamente. Tente adicionar aspas simples ao redor do valor: `ENVIRONMENT='development'`. Isso pode resolver o problema.
 
 #### **Configuração para Produção (Deploy)**
 
