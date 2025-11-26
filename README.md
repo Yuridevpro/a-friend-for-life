@@ -2,20 +2,22 @@
 
 Sistema web completo para conectar protetores de animais a pessoas interessadas em adoção, facilitando o encontro entre pets e seus futuros lares.
 
+---
+
 ## 🚀 Acesso ao Sistema
 
 ### URL de Produção
 **Acesse a aplicação em produção no seguinte link:**
 ### [https://um-amigo-for-life02.onrender.com/](https://um-amigo-for-life02.onrender.com/)
 
-*   **Aviso:** A aplicação está hospedada no plano gratuito do Render. Após um período de inatividade, o servidor "dorme" para economizar recursos. O **primeiro acesso pode levar de 120 a 150 segundos** para carregar enquanto o sistema "acorda". Os acessos seguintes serão instantâneos.
+> **Aviso:** A aplicação está hospedada no plano gratuito do Render. Após um período de inatividade, o servidor "dorme" para economizar recursos. O **primeiro acesso pode levar de 120 a 150 segundos** para carregar enquanto o sistema "acorda". Os acessos seguintes serão instantâneos.
 
 ### Credenciais para Avaliação
 Para facilitar a avaliação das funcionalidades que exigem autenticação, um usuário de teste foi pré-cadastrado no ambiente de produção.
 *   **Email:** `usertest2156@gmail.com`
 *   **Senha:** `User1234`
 
-![Status](https://img.shields.io/badge/Status-Pronto%20para%20Deploy-brightgreen)![Versão](https://img.shields.io/badge/Versão-1.0-blue)![Python](https://img.shields.io/badge/Python-3.x-blue)![Django](https://img.shields.io/badge/Django-4.x-darkgreen)![Database](https://img.shields.io/badge/Database-PostgreSQL-blueviolet)
+![Status](https://img.shields.io/badge/Status-Pronto%20para%20Deploy-brightgreen) ![Versão](https://img.shields.io/badge/Versão-1.0-blue) ![Python](https://img.shields.io/badge/Python-3.x-blue) ![Django](https://img.shields.io/badge/Django-4.x-darkgreen) ![Database](https://img.shields.io/badge/Database-PostgreSQL-blueviolet)
 
 ---
 
@@ -30,6 +32,8 @@ O grande número de animais abandonados e a dificuldade de conexão entre protet
 *   **Promover a Posse Responsável:** Oferecer informações detalhadas sobre cada animal para ajudar a garantir que as adoções sejam bem-sucedidas e duradouras.
 *   **Gerar Impacto Social Positivo:** Contribuir para a diminuição do número de animais abandonados e fortalecer a comunidade de proteção animal, alinhando-se ao **ODS 11 (Cidades e Comunidades Sustentáveis)**.
 
+---
+
 ## ✨ Funcionalidades Implementadas
 
 | Funcionalidade | Status | Screenshot |
@@ -40,6 +44,7 @@ O grande número de animais abandonados e a dificuldade de conexão entre protet
 | **Listagem e Filtragem de Pets:** Página de adoção com filtros por localização, espécie e tamanho. | ✅ Concluído | ![Tela de Listagem de Pets](docs/artefatos-etapa-2/screenshots/04-tela-listagem-pets.png) |
 | **Sistema de Depoimentos:** Usuários autenticados podem criar, editar e remover seus depoimentos. | ✅ Concluído | ![Tela de Depoimentos](docs/artefatos-etapa-2/screenshots/05-tela-depoimentos.png) |
 
+---
 
 ## 🚀 Início Rápido (Ambiente de Desenvolvimento)
 
@@ -55,100 +60,125 @@ cd a-friend-for-life # Navegue para a pasta clonada
 
 # Crie e ative um ambiente virtual
 python -m venv ambiente_virtual
-source ambiente_virtual/bin/activate  # No Windows: ambiente_virtual\Scripts\activate
+ambiente_virtual\Scripts\activate # No Linux: source ambiente_virtual/bin/activate
 
 # Navegue até a pasta do backend e instale as dependências
 cd backend
 pip install -r requirements.txt
 ```
 
-### 3. Variáveis de Ambiente
-Crie um arquivo chamado `.env` na pasta `backend/`. As variáveis necessárias dependem se você está rodando o projeto para desenvolvimento local ou configurando para produção.
-
-#### **Configuração para Desenvolvimento Local**
-
-Para rodar o projeto em sua máquina, copie o conteúdo abaixo para o seu arquivo `backend/.env`.
-
+### 3. Configuração de Variáveis (.env)
+Crie um arquivo chamado `.env` na pasta `backend/` e cole o conteúdo abaixo:
 ```ini
-# --- CONFIGURAÇÕES MÍNIMAS PARA RODAR LOCALMENTE ---
-ENVIRONMENT=development
-SECRET_KEY='django-insecure-academic-test-key-for-local-use-only'
-
-# --- CONFIGURAÇÕES OPCIONAIS PARA TESTAR RECURSOS ---
-
-# Opcional: Para testar o upload de imagens para o Amazon S3.
-# AWS_ACCESS_KEY_ID='sua_chave_aws'
-# AWS_SECRET_ACCESS_KEY='sua_chave_secreta_aws'
-# AWS_STORAGE_BUCKET_NAME='nome-do-seu-bucket-s3'
-# AWS_S3_REGION_NAME='us-east-1'
-
-# Opcional: Para o envio de e-mails para um provedor real (ex: SendGrid).
-# Se omitido, os e-mails serão impressos no terminal.
-# SENDGRID_API_KEY='sua-chave-api-do-sendgrid'
-# DEFAULT_FROM_EMAIL='seu-email-verificado@exemplo.com'
-```
-*   **Nota sobre a `SECRET_KEY`:** Uma chave padrão foi fornecida para que o projeto funcione imediatamente. Para maior segurança, é recomendado gerar sua própria chave única executando no terminal: `python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"`. Copie a string gerada e cole no valor da `SECRET_KEY`.
-
-*   **Solução de Problemas:** Se você encontrar o erro `CommandError: You must set settings.ALLOWED_HOSTS if DEBUG is False`, isso significa que a variável `ENVIRONMENT` não foi lida corretamente. Tente adicionar aspas simples ao redor do valor: `ENVIRONMENT='development'`. Isso pode resolver o problema.
-
-#### **Configuração para Produção (Deploy)**
-
-Para fazer o deploy da aplicação em um servidor, todas as variáveis abaixo são necessárias.
-
-```ini
-# backend/.env (Exemplo para Produção)
-
-ENVIRONMENT='production'
-SECRET_KEY='sua-chave-secreta-forte-para-producao'
-
-# Chaves AWS S3 (Obrigatório)
-AWS_ACCESS_KEY_ID='sua_chave_aws_de_producao'
-AWS_SECRET_ACCESS_KEY='sua_chave_secreta_aws_de_producao'
-AWS_STORAGE_BUCKET_NAME='nome-do-seu-bucket-s3'
-AWS_S3_REGION_NAME='us-east-1'
-
-# Chaves de E-mail (Obrigatório)
-SENDGRID_API_KEY='sua-chave-api-do-sendgrid'
-DEFAULT_FROM_EMAIL='seu-email-verificado@exemplo.com'
-
-# Credenciais do Banco de Dados PostgreSQL (Obrigatório)
-DB_NAME='nome_do_banco_postgres'
-DB_USER='usuario_postgres'
-DB_PASSWORD='senha_postgres'
-DB_HOST='host_do_banco_de_dados'
-DB_PORT=5432
+SECRET_KEY=django-insecure-academic-test-key-for-local-use-only
 ```
 
-
-### 4. Banco de Dados e Execução
-**IMPORTANTE:** Todos os comandos `manage.py` devem ser executados de dentro da pasta `backend/src/`.
+### 4. Banco de Dados e Execução Local
+**IMPORTANTE:** Todos os comandos devem ser executados de dentro da pasta `backend/src/`.
 ```bash
-# Navegue até a pasta do código-fonte
+# Navegue até a pasta do código-fonte (se ainda nao estiver)
 cd backend/src
 
 # Crie o banco de dados e aplique as migrações
 python manage.py migrate
 
-# Inicie o servidor de desenvolvimento
+# Inicie o servidor
 python manage.py runserver
 ```
 
-### 5. Ativando a Conta de Usuário Localmente
-Se você não configurar as variáveis de ambiente do SendGrid, os e-mails serão impressos no terminal.
-1.  Após se cadastrar na plataforma, olhe o terminal onde o `runserver` está rodando.
-2.  Procure por um link como: `http://127.0.0.1:8000/auth/confirmar_email/...`
-3.  Copie e cole este link no seu navegador para ativar sua conta.
+### 5. Ativando a Conta Localmente
+Sem chaves de e-mail configuradas, os links de ativação são impressos no terminal do `runserver`.
+1.  Após se cadastrar, olhe o terminal.
+2.  Copie o link de confirmação (ex: `http://127.0.0.1:8000/auth/confirmar_email/...`).
+3.  Cole no navegador para ativar a conta.
 
 ### 🧪 Executando os Testes
-Para verificar a integridade das funcionalidades, execute a suíte de testes.
 ```bash
 # Navegue até a pasta do código-fonte
 cd backend/src
 
-# Execute o comando de teste apontando para a pasta de testes
+# Execute o comando de teste
 python manage.py test ../tests
 ```
 O resultado esperado é a execução de todos os testes com o status **OK**.
+
+---
+
+## 📦 Configuração para Produção (Deploy) OPCIONAL
+
+Para publicar a aplicação em um serviço de hospedagem, são necessários os seguintes passos:
+
+#### **Passo 1: Ajustes no `settings.py`**
+
+Para que a aplicação funcione tanto localmente quanto em produção, o arquivo `backend/src/adote/settings.py` deve conter a lógica que seleciona as configurações com base na variável de ambiente `ENVIRONMENT`. Certifique-se de que as seções `DEBUG`, `ALLOWED_HOSTS` e `DATABASES` estejam como no exemplo abaixo:
+
+```python
+# backend/src/adote/settings.py
+
+# ...
+ENVIRONMENT = os.getenv('ENVIRONMENT', 'production') 
+DEBUG = (ENVIRONMENT == 'development')
+
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = []
+    render_hostname = os.getenv('RENDER_EXTERNAL_HOSTNAME')
+    # Adicione outros hosts de produção se necessário
+    if render_hostname:
+        ALLOWED_HOSTS.append(render_hostname)
+# ...
+
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': SRC_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWORD'),
+            'HOST': os.getenv('DB_HOST'),
+            'PORT': os.getenv('DB_PORT', '5432'),
+        }
+    }
+# ...
+```
+
+#### **Passo 2: Configurar Variáveis de Ambiente para Produção**
+
+No seu serviço de hospedagem (ex: Render, Heroku), configure as seguintes variáveis de ambiente. Elas devem ser inseridas no painel de controle do serviço, não no arquivo `.env`.
+
+```ini
+# Exemplo de Variáveis de Ambiente para Produção
+
+ENVIRONMENT=production
+SECRET_KEY=sua-chave-secreta-forte-para-producao
+
+# Chaves AWS S3 (Obrigatório)
+AWS_ACCESS_KEY_ID=sua_chave_aws_de_producao
+AWS_SECRET_ACCESS_KEY=sua_chave_secreta_aws_de_producao
+AWS_STORAGE_BUCKET_NAME=nome-do-seu-bucket-s3
+AWS_S3_REGION_NAME=us-east-1
+
+# Chaves de E-mail (Obrigatório)
+SENDGRID_API_KEY=sua-chave-api-do-sendgrid
+DEFAULT_FROM_EMAIL=seu-email-verificado@exemplo.com
+
+# Credenciais do Banco de Dados PostgreSQL (Obrigatório)
+DB_NAME=nome_do_banco_postgres
+DB_USER=usuario_postgres
+DB_PASSWORD=senha_postgres
+DB_HOST=host_do_banco_de_dados
+DB_PORT=5432
+```
+
+---
 
 ## 🏛️ Arquitetura do Sistema
 
@@ -185,6 +215,8 @@ graph TD
 - **Infraestrutura (Produção):** Gunicorn, Nginx
 - **Nota:** A estrutura de referência do projeto acadêmico inclui arquivos `package.json`, que são específicos para projetos baseados em Node.js/JavaScript. Como este projeto utiliza uma arquitetura monolítica com Django, esses arquivos não são aplicáveis.
 
+---
+
 ## 📁 Estrutura do Projeto
 
 ```
@@ -217,7 +249,9 @@ projeto-academico/
     └── ...
 ```
 
-### 6. 📄 Documentação do Projeto
+---
+
+## 📄 Documentação do Projeto
 
 Toda a documentação técnica e de planejamento do projeto está organizada na pasta `docs/` e pode ser acessada através dos links abaixo.
 
@@ -247,8 +281,7 @@ Esta seção contém os artefatos gerados durante a fase de codificação e entr
 -   [**Feedback Detalhado Coletado**](./validation/feedback/feedback-coletado.md)
 -   **Screenshots da Aplicação Final:** (Disponíveis na seção `Funcionalidades Implementadas` acima)
 
-
-
+---
 
 ## 🤝 Equipe de Desenvolvimento
 
@@ -260,6 +293,4 @@ Esta seção contém os artefatos gerados durante a fase de codificação e entr
 | Yuri da Silva Ferreira | Time (Desenvolvimento) |
 | Kairo César Ferreira Cunha | Time (Desenvolvimento / Testes) |
 | Gabriel Nogueira Ibiapina | UX / Documentação |
-
-
----
+```

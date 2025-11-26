@@ -21,19 +21,8 @@ load_dotenv(BACKEND_DIR / '.env')
 
 # --- CONFIGURAÇÕES DE AMBIENTE E SEGURANÇA ---
 SECRET_KEY = os.getenv('SECRET_KEY')
-ENVIRONMENT = os.getenv('ENVIRONMENT', 'production') 
-DEBUG = (ENVIRONMENT == 'development')
-
-if DEBUG:
-    ALLOWED_HOSTS = ['*']
-else:
-    ALLOWED_HOSTS = []
-    render_hostname = os.getenv('RENDER_EXTERNAL_HOSTNAME')
-    if render_hostname:
-        ALLOWED_HOSTS.append(render_hostname)
-    custom_hosts_str = os.getenv('ALLOWED_HOSTS')
-    if custom_hosts_str:
-        ALLOWED_HOSTS.extend([host.strip() for host in custom_hosts_str.split(',')])
+DEBUG = True
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # --- APLICAÇÕES INSTALADAS ---
 INSTALLED_APPS = [
@@ -91,26 +80,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'adote.wsgi.application'
 
-# --- BANCO DE DADOS DINÂMICO ---
-if DEBUG:
-    DATABASES = {
+
+
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             # O db.sqlite3 será criado na pasta 'backend/src/'
             'NAME': SRC_DIR / 'db.sqlite3',
         }
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('DB_NAME'),
-            'USER': os.getenv('DB_USER'),
-            'PASSWORD': os.getenv('DB_PASSWORD'),
-            'HOST': os.getenv('DB_HOST'),
-            'PORT': os.getenv('DB_PORT', '5432'),
-        }
-    }
+
 
 # --- VALIDAÇÃO DE SENHA ---
 AUTH_PASSWORD_VALIDATORS = [
