@@ -125,12 +125,19 @@ AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
 
-# --- CONFIGURAÇÃO DE E-MAIL (SENDGRID) ---
-EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
-DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
-SENDGRID_SANDBOX_MODE_IN_DEBUG = False
-SENDGRID_ECHO_TO_STDOUT = True
+# --- CONFIGURAÇÃO DE E-MAIL (SENDGRID / CONSOLE) ---
+if DEBUG:
+    # Em desenvolvimento, não tente enviar e-mails de verdade.
+    # Em vez disso, imprima todo o conteúdo do e-mail no console.
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    # Em produção, use o backend do SendGrid para enviar e-mails reais.
+    EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+    SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+    DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+    # As configurações abaixo do SendGrid são usadas apenas quando EMAIL_BACKEND é o do SendGrid.
+    SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+    SENDGRID_ECHO_TO_STDOUT = True # Pode ser mantido, mas não terá efeito com o console.EmailBackend
 
 # --- OUTRAS CONFIGURAÇÕES ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

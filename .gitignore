@@ -4,5 +4,4 @@ ambiente_virtual/
 .env 
 backend/src/db.sqlite3
 
-
 **/db.sqlite3
