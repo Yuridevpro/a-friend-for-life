@@ -53,56 +53,89 @@ O grande número de animais abandonados e a dificuldade de conexão entre protet
 - Git
 
 ### 2. Configuração do Ambiente
+
+**Passo 1: Clone o repositório**
 ```bash
-# Clone o repositório
 git clone https://github.com/Yuridevpro/a-friend-for-life.git
-cd a-friend-for-life # Navegue para a pasta clonada
+```
 
-# Crie e ative um ambiente virtual
+**Passo 2: Entre na pasta do projeto**
+```bash
+cd a-friend-for-life
+```
+
+**Passo 3: Crie o ambiente virtual**
+```bash
 python -m venv ambiente_virtual
-ambiente_virtual\Scripts\activate # No Linux: source ambiente_virtual/bin/activate
+```
 
-# Navegue até a pasta do backend e instale as dependências
+**Passo 4: Ative o ambiente virtual**
+
+*   **No Windows:**
+    ```bash
+    ambiente_virtual\Scripts\activate
+    ```
+*   **No Linux ou macOS:**
+    ```bash
+    source ambiente_virtual/bin/activate
+    ```
+
+**Passo 5: Navegue até a pasta do backend**
+```bash
 cd backend
+```
+
+**Passo 6: Instale as dependências do projeto**
+```bash
 pip install -r requirements.txt
 ```
 
-### 3. Configuração de Variáveis (.env)
-Crie um arquivo chamado `.env` na pasta `backend/` e cole o conteúdo abaixo:
+### 3. Configuração de Variáveis de Ambiente
+Crie um arquivo chamado exatamente `.env` (com o ponto no início) dentro da pasta `backend/` e cole o conteúdo abaixo:
 ```ini
 SECRET_KEY=django-insecure-academic-test-key-for-local-use-only
 ```
+*   **Nota:** Uma chave padrão foi fornecida para facilitar a execução. Para maior segurança, você pode gerar sua própria chave executando no terminal: `python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"` e colando o resultado no arquivo.
 
-### 4. Banco de Dados e Execução Local
-**IMPORTANTE:** Todos os comandos devem ser executados de dentro da pasta `backend/src/`.
+### 4. Banco de Dados e Execução
+**IMPORTANTE:** A partir deste ponto, todos os comandos `manage.py` devem ser executados de dentro da pasta `backend/src/`.
+
+**Passo 1: Navegue até a pasta do código-fonte**
 ```bash
-# Navegue até a pasta do código-fonte (se ainda nao estiver)
-cd backend/src
-
-# Crie o banco de dados e aplique as migrações
-python manage.py migrate
-
-# Inicie o servidor
-python manage.py runserver
+cd src
 ```
 
-### 5. Ativando a Conta Localmente
-Sem chaves de e-mail configuradas, os links de ativação são impressos no terminal do `runserver`.
-1.  Após se cadastrar, olhe o terminal.
+**Passo 2: Crie o banco de dados e aplique as migrações**
+```bash
+python manage.py migrate
+```
+
+**Passo 3: Inicie o servidor de desenvolvimento**
+```bash
+python manage.py runserver
+```
+A aplicação estará disponível em `http://127.0.0.1:8000/`.
+
+### 5. Ativando a Conta de Usuário Localmente
+Se você não configurar um serviço de e-mail, os links de ativação serão impressos no terminal onde o `runserver` está rodando.
+1.  Após se cadastrar na plataforma, verifique o console do terminal.
 2.  Copie o link de confirmação (ex: `http://127.0.0.1:8000/auth/confirmar_email/...`).
-3.  Cole no navegador para ativar a conta.
+3.  Cole o link no seu navegador para ativar a conta.
 
 ### 🧪 Executando os Testes
-```bash
-# Navegue até a pasta do código-fonte
-cd backend/src
+Para verificar a integridade das funcionalidades, execute a suíte de testes automatizados.
 
-# Execute o comando de teste
+**Passo 1: Navegue até a pasta do código-fonte (se não estiver nela)**
+```bash
+# Se você parou o servidor, certifique-se de estar em 'backend/src/'
+cd backend/src
+```
+
+**Passo 2: Execute o comando de teste**
+```bash
 python manage.py test ../tests
 ```
 O resultado esperado é a execução de todos os testes com o status **OK**.
-
----
 
 ## 📦 Configuração para Produção (Deploy) OPCIONAL
 
