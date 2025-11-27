@@ -90,12 +90,21 @@ cd backend
 pip install -r requirements.txt
 ```
 
-### 3. Configuração de Variáveis de Ambiente
-Crie um arquivo chamado exatamente `.env` (com o ponto no início) dentro da pasta `backend/` e cole o conteúdo abaixo:
-```ini
-SECRET_KEY=django-insecure-academic-test-key-for-local-use-only
-```
-*   **Nota:** Uma chave padrão foi fornecida para facilitar a execução. Para maior segurança, você pode gerar sua própria chave executando no terminal: `python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"` e colando o resultado no arquivo.
+### 3. Variáveis de Ambiente
+
+**Passo 7: Crie o arquivo `.env`**
+Crie o arquivo `.env` na pasta `backend/` usando o comando correspondente ao seu sistema operacional.
+
+*   **No Windows (PowerShell ou CMD):**
+    ```bash
+    echo SECRET_KEY=django-insecure-academic-test-key-for-local-use-only > .env
+    ```
+*   **No Linux ou macOS:**
+    ```bash
+    echo "SECRET_KEY=django-insecure-academic-test-key-for-local-use-only" > .env
+    ```
+*   **Nota:** Uma chave padrão foi fornecida para facilitar a execução. Para gerar sua própria chave única, execute `python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"` e cole o resultado no arquivo `.env`.
+
 
 ### 4. Banco de Dados e Execução
 **IMPORTANTE:** A partir deste ponto, todos os comandos `manage.py` devem ser executados de dentro da pasta `backend/src/`.
