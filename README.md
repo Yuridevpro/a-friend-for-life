@@ -109,17 +109,17 @@ Crie o arquivo `.env` na pasta `backend/` usando o comando correspondente ao seu
 ### 4. Banco de Dados e Execução
 **IMPORTANTE:** A partir deste ponto, todos os comandos `manage.py` devem ser executados de dentro da pasta `backend/src/`.
 
-**Passo 1: Navegue até a pasta do código-fonte**
+**Passo 8: Navegue até a pasta do código-fonte**
 ```bash
 cd src
 ```
 
-**Passo 2: Crie o banco de dados e aplique as migrações**
+**Passo 9: Crie o banco de dados e aplique as migrações**
 ```bash
 python manage.py migrate
 ```
 
-**Passo 3: Inicie o servidor de desenvolvimento**
+**Passo 10: Inicie o servidor de desenvolvimento**
 ```bash
 python manage.py runserver
 ```
